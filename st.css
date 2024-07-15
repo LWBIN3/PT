@@ -1,6 +1,7 @@
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #8074b75f;
+    background-color: #ffffff;
     margin: 0;
     padding: 20px;
 }
@@ -8,6 +9,24 @@ body {
 h1 {
     color: #333;
     text-align: center;
+}
+
+.reset {
+  background-color: #ececec;
+  padding: 5px 5px;
+  border-radius: 5px;
+  
+  font-size: 11px;
+  
+  color: #080808;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  position: relative;
+  top: 0; /* 根據需要調整 */
+  left: 0; /* 根據需要調整 */
+  border-color: #666;
+  width: auto;
 }
 
 .periodic-table {
@@ -18,29 +37,25 @@ h1 {
     margin: 0 auto;
 }
 
-.input-wrapper {
-    grid-column: 1 / -1;  /* 橫跨所有列 */
-    justify-self: center; /* 在 grid 中水平置中 */
-    font-size: 16px;
-    border:0px;
-    flex:1;
-    outline:none;
-    padding: 10px 20px;
-    display:flex;
+.form {
+    grid-column: 1 / -1; 
+    grid-row:1/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: transparent; /* 背景颜色 */
 }
-.input-wrapper button{
-    background-color: rgb(72, 0, 255);
-    border : 0px;
-    color:white;
-    font-size:14px;
-    padding: 5px 15px;
-    border-radius:10px;
-    /* 粗體字 */
-    font-weight: 700;
+
+form > input, form {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    background-color: rgb(187, 181, 184);
 }
-.input{
+
+.input {
     background-color: transparent;
-   
     padding: 5px 28px;
 }
 
@@ -59,11 +74,35 @@ h1 {
 }
 
 .element-non-metal {
-    background-color: #5cc5fd;
+    background-color: #71655e97;
 }
 
 .element-alkali-metal {
-    background-color: #fd6b6b;
+    background-color: #79df41dd;
+}
+
+.element-alkali-earth-metal{
+    background-color: #55f201;
+}
+
+.element-transition-metal{
+    background-color: rgb(34, 198, 198);
+}
+
+.element-noble-gas{
+    background-color: #9036a4d9;
+}
+
+.element-halogen{
+    background-color:darkgoldenrod ;
+}
+
+.element-metalloid{
+    background-color: #cd5f5ff7;
+}
+
+.element-metal{
+    background-color: #9f9d9d;
 }
 
 .num {
@@ -74,22 +113,50 @@ h1 {
 .element-symbol {
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: #333333;
+}
+.mat {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100px;  /* 調整寬度 */
+height: 100px; /* 調整高度 */
+text-align: center;
 }
 
 .mat a {
-    text-decoration: none;
-    color: inherit;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+text-decoration: none;
+color: inherit;
+}
+
+.num {
+font-size: 12px;  /* 調整大小 */
+}
+
+.element-symbol {
+font-size: 24px;  /* 調整大小 */
+font-weight: bold;
+}
+
+.element-name {
+font-size: 10px;  /* 調整大小 */
 }
 
 .mat.simple:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(239, 67, 5, 0.2);
+  
 }
 
-/* 週期表元素位置 */
- 
 
+
+/* 週期表元素位置 */
 .mat.simple[data-element="H"] { grid-column: 1; grid-row: 2; }
 .mat.simple[data-element="He"] { grid-column: 18; grid-row: 2; }
 .mat.simple[data-element="Li"] { grid-column: 1; grid-row: 3; }
@@ -108,39 +175,39 @@ h1 {
 .mat.simple[data-element="S"] { grid-column: 16; grid-row: 4; }
 .mat.simple[data-element="Cl"] { grid-column: 17; grid-row: 4; }
 .mat.simple[data-element="Ar"] { grid-column: 18; grid-row: 4; }
-.mat.simple[data-element="K"] { grid-column: 1; grid-row:5 ; }
-.mat.simple[data-element="Ca"] { grid-column: 2; grid-row:5 ; }
-.mat.simple[data-element="Sc"] { grid-column: 3; grid-row:5 ; }
-.mat.simple[data-element="Ti"] { grid-column: 4; grid-row:5 ; }
-.mat.simple[data-element="V"] { grid-column: 5; grid-row:5 ; }
-.mat.simple[data-element="Cr"] { grid-column: 6; grid-row:5 ; }
-.mat.simple[data-element="Mn"] { grid-column: 7; grid-row:5 ; }
-.mat.simple[data-element="Fe"] { grid-column: 8; grid-row:5 ; }
-.mat.simple[data-element="Co"] { grid-column: 9; grid-row:5 ; }
-.mat.simple[data-element="Ni"] { grid-column: 10; grid-row:5 ; }
-.mat.simple[data-element="Cu"] { grid-column: 11; grid-row:5 ; }
-.mat.simple[data-element="Zn"] { grid-column: 12; grid-row:5 ; }
-.mat.simple[data-element="Ga"] { grid-column: 13; grid-row:5 ; }
-.mat.simple[data-element="Ge"] { grid-column: 14; grid-row:5 ; }
-.mat.simple[data-element="As"] { grid-column: 15; grid-row:5 ; }
-.mat.simple[data-element="Se"] { grid-column: 16; grid-row:5 ; }
-.mat.simple[data-element="Br"] { grid-column: 17; grid-row:5 ; }
-.mat.simple[data-element="Kr"] { grid-column: 18; grid-row:5 ; }
-.mat.simple[data-element="Rb"] { grid-column: 1; grid-row:6 ; }
-.mat.simple[data-element="Sr"] { grid-column: 2; grid-row:6 ; }
-.mat.simple[data-element="Y"] { grid-column: 3; grid-row:6 ; }
-.mat.simple[data-element="Zr"] { grid-column: 4; grid-row:6 ; }
-.mat.simple[data-element="Nb"] { grid-column: 5; grid-row:6 ; }
-.mat.simple[data-element="Mo"] { grid-column: 6; grid-row:6 ; }
-.mat.simple[data-element="Tc"] { grid-column: 7; grid-row:6 ; }
-.mat.simple[data-element="Ru"] { grid-column: 8; grid-row:6 ; }
-.mat.simple[data-element="Rh"] { grid-column: 9; grid-row:6 ; }
-.mat.simple[data-element="Pd"] { grid-column: 10; grid-row:6 ; }
-.mat.simple[data-element="Ag"] { grid-column: 11; grid-row:6 ; }
-.mat.simple[data-element="Cd"] { grid-column: 12; grid-row:6 ; }
-.mat.simple[data-element="In"] { grid-column: 13; grid-row:6 ; }
-.mat.simple[data-element="Sn"] { grid-column: 14; grid-row:6 ; }
-.mat.simple[data-element="Sb"] { grid-column: 15; grid-row:6 ; }
-.mat.simple[data-element="Te"] { grid-column: 16; grid-row:6 ; }
-.mat.simple[data-element="I"] { grid-column: 17; grid-row:6 ; }
-.mat.simple[data-element="Xe"] { grid-column: 18; grid-row:6 ; }
+.mat.simple[data-element="K"] { grid-column: 1; grid-row: 5; }
+.mat.simple[data-element="Ca"] { grid-column: 2; grid-row: 5; }
+.mat.simple[data-element="Sc"] { grid-column: 3; grid-row: 5; }
+.mat.simple[data-element="Ti"] { grid-column: 4; grid-row: 5; }
+.mat.simple[data-element="V"] { grid-column: 5; grid-row: 5; }
+.mat.simple[data-element="Cr"] { grid-column: 6; grid-row: 5; }
+.mat.simple[data-element="Mn"] { grid-column: 7; grid-row: 5; }
+.mat.simple[data-element="Fe"] { grid-column: 8; grid-row: 5; }
+.mat.simple[data-element="Co"] { grid-column: 9; grid-row: 5; }
+.mat.simple[data-element="Ni"] { grid-column: 10; grid-row: 5; }
+.mat.simple[data-element="Cu"] { grid-column: 11; grid-row: 5; }
+.mat.simple[data-element="Zn"] { grid-column: 12; grid-row: 5; }
+.mat.simple[data-element="Ga"] { grid-column: 13; grid-row: 5; }
+.mat.simple[data-element="Ge"] { grid-column: 14; grid-row: 5; }
+.mat.simple[data-element="As"] { grid-column: 15; grid-row: 5; }
+.mat.simple[data-element="Se"] { grid-column: 16; grid-row: 5; }
+.mat.simple[data-element="Br"] { grid-column: 17; grid-row: 5; }
+.mat.simple[data-element="Kr"] { grid-column: 18; grid-row: 5; }
+.mat.simple[data-element="Rb"] { grid-column: 1; grid-row: 6; }
+.mat.simple[data-element="Sr"] { grid-column: 2; grid-row: 6; }
+.mat.simple[data-element="Y"] { grid-column: 3; grid-row: 6; }
+.mat.simple[data-element="Zr"] { grid-column: 4; grid-row: 6; }
+.mat.simple[data-element="Nb"] { grid-column: 5; grid-row: 6; }
+.mat.simple[data-element="Mo"] { grid-column: 6; grid-row: 6; }
+.mat.simple[data-element="Tc"] { grid-column: 7; grid-row: 6; }
+.mat.simple[data-element="Ru"] { grid-column: 8; grid-row: 6; }
+.mat.simple[data-element="Rh"] { grid-column: 9; grid-row: 6; }
+.mat.simple[data-element="Pd"] { grid-column: 10; grid-row: 6; }
+.mat.simple[data-element="Ag"] { grid-column: 11; grid-row: 6; }
+.mat.simple[data-element="Cd"] { grid-column: 12; grid-row: 6; }
+.mat.simple[data-element="In"] { grid-column: 13; grid-row: 6; }
+.mat.simple[data-element="Sn"] { grid-column: 14; grid-row: 6; }
+.mat.simple[data-element="Sb"] { grid-column: 15; grid-row: 6; }
+.mat.simple[data-element="Te"] { grid-column: 16; grid-row: 6; }
+.mat.simple[data-element="I"] { grid-column: 17; grid-row: 6; }
+.mat.simple[data-element="Xe"] { grid-column: 18; grid-row: 6; }

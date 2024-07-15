@@ -1,75 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Materials DataBase</title>
-        <link rel="stylesheet" href='st.css'/>
-        <script src="mm.js" defer></script>
-    </head>
-    <body>
-        <h1>Examination Periodic Table</h1>
-        <hr/>
-        <div class="periodic-table">
-            <form class="input-wrapper" id="input-wrapper">
-                <input class="input" type="text" id="input">
-                <button id="search-button">Search</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+    <link rel="stylesheet" href = 'st.css'/>
+    <script src="mm.js" defer></script>
+</head>
+<body>
+    <h1>Periodic Table</h1>
+    <div class="periodic-table">
+        <div class="form">
+            <form id="elementForm">
+                
+                化學符號: <input type="text" id="elementSymbol" class="input" placeholder="Element Symbol" required pattern="[a-zA-Z]{1,2}" >
+                <br/>
+                <br/>
+                原子順序: <input type="text" id="elementNumber" class="input" placeholder="Atomic Number" required pattern="[0-9]{1,54}" maxlength="2" >
+                <br/>
+                <br/>
+                元素名稱: <input type="text" id="elementName" class="input" placeholder="Element Name" required pattern="[a-zA-Z]{1,10}" >
+                <br/>
+                <br/>
+                <button type="submit">Search</button> <a href="index.html" class="reset">Reset</a>
             </form>
-            <button class="mat simple element-alkali-metal" data-element="H"><div class="num">1</div><div class="mat"><a title="Hydrogen" href="https://zh.wikipedia.org/zh-tw/Hydrogen"><span class="element-symbol">H</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="He"><div class="num">2</div><div class="mat"><a title="Helium" href="https://zh.wikipedia.org/zh-tw/Helium"><span class="element-symbol">He</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Li"><div class="num">3</div><div class="mat"><a title="Lithium" href="https://zh.wikipedia.org/zh-tw/Lithium"><span class="element-symbol">Li</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Be"><div class="num">4</div><div class="mat"><a title="Beryllium" href="https://zh.wikipedia.org/zh-tw/Beryllium"><span class="element-symbol">Be</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="B"><div class="num">5</div><div class="mat"><a title="Boron" href="https://zh.wikipedia.org/zh-tw/Boron"><span class="element-symbol">B</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="C"><div class="num">6</div><div class="mat"><a title="Carbon" href="https://zh.wikipedia.org/zh-tw/Carbon"><span class="element-symbol">C</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="N"><div class="num">7</div><div class="mat"><a title="Nitrogen" href="https://zh.wikipedia.org/zh-tw/Nitrogen"><span class="element-symbol">N</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="O"><div class="num">8</div><div class="mat"><a title="Oxygen" href="https://zh.wikipedia.org/zh-tw/Oxygen"><span class="element-symbol">O</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="F"><div class="num">9</div><div class="mat"><a title="Fluorine" href="https://zh.wikipedia.org/zh-tw/Fluorine"><span class="element-symbol">F</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ne"><div class="num">10</div><div class="mat"><a title="Neon" href="https://zh.wikipedia.org/zh-tw/Neon"><span class="element-symbol">Ne</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Na"><div class="num">11</div><div class="mat"><a title="Sodium" href="https://zh.wikipedia.org/zh-tw/Sodium"><span class="element-symbol">Na</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Mg"><div class="num">12</div><div class="mat"><a title="Magnesium" href="https://zh.wikipedia.org/zh-tw/Magnesium"><span class="element-symbol">Mg</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Al"><div class="num">13</div><div class="mat"><a title="Aluminium" href="https://zh.wikipedia.org/zh-tw/Aluminium"><span class="element-symbol">Al</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Si"><div class="num">14</div><div class="mat"><a title="Silicon" href="https://zh.wikipedia.org/zh-tw/Silicon"><span class="element-symbol">Si</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="P"><div class="num">15</div><div class="mat"><a title="Phosphorus" href="https://zh.wikipedia.org/zh-tw/Phosphorus"><span class="element-symbol">P</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="S"><div class="num">16</div><div class="mat"><a title="Sulfur" href="https://zh.wikipedia.org/zh-tw/Sulfur"><span class="element-symbol">S</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Cl"><div class="num">17</div><div class="mat"><a title="Chlorine" href="https://zh.wikipedia.org/zh-tw/Chlorine"><span class="element-symbol">Cl</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ar"><div class="num">18</div><div class="mat"><a title="Argon" href="https://zh.wikipedia.org/zh-tw/Argon"><span class="element-symbol">Ar</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="K"><div class="num">19</div><div class="mat"><a title="Potassium" href="https://zh.wikipedia.org/zh-tw/Potassium"><span class="element-symbol">K</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ca"><div class="num">20</div><div class="mat"><a title="Calcium" href="https://zh.wikipedia.org/zh-tw/Calcium"><span class="element-symbol">Ca</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Sc"><div class="num">21</div><div class="mat"><a title="Scandium" href="https://zh.wikipedia.org/zh-tw/Scandium"><span class="element-symbol">Sc</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ti"><div class="num">22</div><div class="mat"><a title="Titanium" href="https://zh.wikipedia.org/zh-tw/Titanium"><span class="element-symbol">Ti</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="V"><div class="num">23</div><div class="mat"><a title="Vanadium" href="https://zh.wikipedia.org/zh-tw/Vanadium"><span class="element-symbol">V</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Cr"><div class="num">24</div><div class="mat"><a title="Chromium" href="https://zh.wikipedia.org/zh-tw/Chromium"><span class="element-symbol">Cr</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Mn"><div class="num">25</div><div class="mat"><a title="Manganese" href="https://zh.wikipedia.org/zh-tw/Manganese"><span class="element-symbol">Mn</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Fe"><div class="num">26</div><div class="mat"><a title="Iron" href="https://zh.wikipedia.org/zh-tw/Iron"><span class="element-symbol">Fe</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Co"><div class="num">27</div><div class="mat"><a title="Cobalt" href="https://zh.wikipedia.org/zh-tw/Cobalt"><span class="element-symbol">Co</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ni"><div class="num">28</div><div class="mat"><a title="Nickel" href="https://zh.wikipedia.org/zh-tw/Nickel"><span class="element-symbol">Ni</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Cu"><div class="num">29</div><div class="mat"><a title="Copper" href="https://zh.wikipedia.org/zh-tw/Copper"><span class="element-symbol">Cu</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Zn"><div class="num">30</div><div class="mat"><a title="Zinc" href="https://zh.wikipedia.org/zh-tw/Zinc"><span class="element-symbol">Zn</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ga"><div class="num">31</div><div class="mat"><a title="Gallium" href="https://zh.wikipedia.org/zh-tw/Gallium"><span class="element-symbol">Ga</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ge"><div class="num">32</div><div class="mat"><a title="Germanium" href="https://zh.wikipedia.org/zh-tw/Germanium"><span class="element-symbol">Ge</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="As"><div class="num">33</div><div class="mat"><a title="Arsenic" href="https://zh.wikipedia.org/zh-tw/Arsenic"><span class="element-symbol">As</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Se"><div class="num">34</div><div class="mat"><a title="Selenium" href="https://zh.wikipedia.org/zh-tw/Selenium"><span class="element-symbol">Se</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Br"><div class="num">35</div><div class="mat"><a title="Bromine" href="https://zh.wikipedia.org/zh-tw/Bromine"><span class="element-symbol">Br</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Kr"><div class="num">36</div><div class="mat"><a title="Krypton" href="https://zh.wikipedia.org/zh-tw/Krypton"><span class="element-symbol">Kr</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Rb"><div class="num">37</div><div class="mat"><a title="Rubidium" href="https://zh.wikipedia.org/zh-tw/Rubidium"><span class="element-symbol">Rb</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Sr"><div class="num">38</div><div class="mat"><a title="Strontium" href="https://zh.wikipedia.org/zh-tw/Strontium"><span class="element-symbol">Sr</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Y"><div class="num">39</div><div class="mat"><a title="Yttrium" href="https://zh.wikipedia.org/zh-tw/Yttrium"><span class="element-symbol">Y</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Zr"><div class="num">40</div><div class="mat"><a title="Zirconium" href="https://zh.wikipedia.org/zh-tw/Zirconium"><span class="element-symbol">Zr</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Nb"><div class="num">41</div><div class="mat"><a title="Niobium" href="https://zh.wikipedia.org/zh-tw/Niobium"><span class="element-symbol">Nb</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Mo"><div class="num">42</div><div class="mat"><a title="Molybdenum" href="https://zh.wikipedia.org/zh-tw/Molybdenum"><span class="element-symbol">Mo</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Tc"><div class="num">43</div><div class="mat"><a title="Technetium" href="https://zh.wikipedia.org/zh-tw/Technetium"><span class="element-symbol">Tc</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ru"><div class="num">44</div><div class="mat"><a title="Ruthenium" href="https://zh.wikipedia.org/zh-tw/Ruthenium"><span class="element-symbol">Ru</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Rh"><div class="num">45</div><div class="mat"><a title="Rhodium" href="https://zh.wikipedia.org/zh-tw/Rhodium"><span class="element-symbol">Rh</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Pd"><div class="num">46</div><div class="mat"><a title="Palladium" href="https://zh.wikipedia.org/zh-tw/Palladium"><span class="element-symbol">Pd</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Ag"><div class="num">47</div><div class="mat"><a title="Silver" href="https://zh.wikipedia.org/zh-tw/Silver"><span class="element-symbol">Ag</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Cd"><div class="num">48</div><div class="mat"><a title="Cadmium" href="https://zh.wikipedia.org/zh-tw/Cadmium"><span class="element-symbol">Cd</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="In"><div class="num">49</div><div class="mat"><a title="Indium" href="https://zh.wikipedia.org/zh-tw/Indium"><span class="element-symbol">In</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Sn"><div class="num">50</div><div class="mat"><a title="Tin" href="https://zh.wikipedia.org/zh-tw/Tin"><span class="element-symbol">Sn</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Sb"><div class="num">51</div><div class="mat"><a title="Antimony" href="https://zh.wikipedia.org/zh-tw/Antimony"><span class="element-symbol">Sb</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Te"><div class="num">52</div><div class="mat"><a title="Tellurium" href="https://zh.wikipedia.org/zh-tw/Tellurium"><span class="element-symbol">Te</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="I"><div class="num">53</div><div class="mat"><a title="Iodine" href="https://zh.wikipedia.org/zh-tw/Iodine"><span class="element-symbol">I</span></a></div></button>
-            <button class="mat simple element-alkali-metal" data-element="Xe"><div class="num">54</div><div class="mat"><a title="Xenon" href="https://zh.wikipedia.org/zh-tw/Xenon"><span class="element-symbol">Xe</span></a></div></button>
         </div>
-        <div class="side-bar container"></div>
-    </body>
+        
+        <div class="mat simple element-non-metal" data-element="H" data-number="1" data-name="Hydrogen"> <a title="Hydrogen" href="https://zh.wikipedia.org/zh-tw/Hydrogen"> <div class="num">1</div> <div class="element-symbol">H</div> <div class="element-name">Hydrogen</div> </a> </div>
+        <div class="mat simple element-noble-gas" data-element="He" data-number="2" data-name="Helium"> <a title="Helium" href="https://zh.wikipedia.org/zh-tw/Helium"> <div class="num">2</div> <div class="element-symbol">He</div> <div class="element-name">Helium</div> </a> </div>
+        <div class="mat simple element-alkali-metal" data-element="Li" data-number="3" data-name="Lithium"> <a title="Lithium" href="https://zh.wikipedia.org/zh-tw/Lithium"> <div class="num">3</div> <div class="element-symbol">Li</div> <div class="element-name">Lithium</div> </a> </div>
+        <div class="mat simple element-alkali-earth-metal" data-element="Be" data-number="4" data-name="Beryllium"> <a title="Beryllium" href="https://zh.wikipedia.org/zh-tw/Beryllium"> <div class="num">4</div> <div class="element-symbol">Be</div> <div class="element-name">Beryllium</div> </a> </div>
+        <div class="mat simple element-metalloid" data-element="B" data-number="5" data-name="Boron"> <a title="Boron" href="https://zh.wikipedia.org/zh-tw/Boron"> <div class="num">5</div> <div class="element-symbol">B</div> <div class="element-name">Boron</div> </a> </div>
+        <div class="mat simple element-non-metal" data-element="C" data-number="6" data-name="Carbon"> <a title="Carbon" href="https://zh.wikipedia.org/zh-tw/Carbon"> <div class="num">6</div> <div class="element-symbol">C</div> <div class="element-name">Carbon</div> </a> </div>
+        <div class="mat simple element-non-metal" data-element="N" data-number="7" data-name="Nitrogen"> <a title="Nitrogen" href="https://zh.wikipedia.org/zh-tw/Nitrogen"> <div class="num">7</div> <div class="element-symbol">N</div> <div class="element-name">Nitrogen</div> </a> </div>
+        <div class="mat simple element-non-metal" data-element="O" data-number="8" data-name="Oxygen"> <a title="Oxygen" href="https://zh.wikipedia.org/zh-tw/Oxygen"> <div class="num">8</div> <div class="element-symbol">O</div> <div class="element-name">Oxygen</div> </a> </div>
+        <div class="mat simple element-halogen" data-element="F" data-number="9" data-name="Fluorine"> <a title="Fluorine" href="https://zh.wikipedia.org/zh-tw/Fluorine"> <div class="num">9</div> <div class="element-symbol">F</div> <div class="element-name">Fluorine</div> </a> </div>
+        <div class="mat simple element-noble-gas" data-element="Ne" data-number="10" data-name="Neon"> <a title="Neon" href="https://zh.wikipedia.org/zh-tw/Neon"> <div class="num">10</div> <div class="element-symbol">Ne</div> <div class="element-name">Neon</div> </a> </div>
+        <div class="mat simple element-alkali-metal" data-element="Na" data-number="11" data-name="Sodium"> <a title="Sodium" href="https://zh.wikipedia.org/zh-tw/Sodium"> <div class="num">11</div> <div class="element-symbol">Na</div> <div class="element-name">Sodium</div> </a> </div>
+        <div class="mat simple element-alkali-earth-metal" data-element="Mg" data-number="12" data-name="Magnesium"> <a title="Magnesium" href="https://zh.wikipedia.org/zh-tw/Magnesium"> <div class="num">12</div> <div class="element-symbol">Mg</div> <div class="element-name">Magnesium</div> </a> </div>
+        <div class="mat simple element-metal" data-element="Al" data-number="13" data-name="Aluminium"> <a title="Aluminium" href="https://zh.wikipedia.org/zh-tw/Aluminium"> <div class="num">13</div> <div class="element-symbol">Al</div> <div class="element-name">Aluminium</div> </a> </div>
+        <div class="mat simple element-metalloid" data-element="Si" data-number="14" data-name="Silicon"> <a title="Silicon" href="https://zh.wikipedia.org/zh-tw/Silicon"> <div class="num">14</div> <div class="element-symbol">Si</div> <div class="element-name">Silicon</div> </a> </div>
+        <div class="mat simple element-non-metal" data-element="P" data-number="15" data-name="Phosphorus"> <a title="Phosphorus" href="https://zh.wikipedia.org/zh-tw/Phosphorus"> <div class="num">15</div> <div class="element-symbol">P</div> <div class="element-name">Phosphorus</div> </a> </div>
+        <div class="mat simple element-non-metal" data-element="S" data-number="16" data-name="Sulfur"> <a title="Sulfur" href="https://zh.wikipedia.org/zh-tw/Sulfur"> <div class="num">16</div> <div class="element-symbol">S</div> <div class="element-name">Sulfur</div> </a> </div>
+        <div class="mat simple element-halogen" data-element="Cl" data-number="17" data-name="Chlorine"> <a title="Chlorine" href="https://zh.wikipedia.org/zh-tw/Chlorine"> <div class="num">17</div> <div class="element-symbol">Cl</div> <div class="element-name">Chlorine</div> </a> </div>
+        <div class="mat simple element-noble-gas" data-element="Ar" data-number="18" data-name="Argon"> <a title="Argon" href="https://zh.wikipedia.org/zh-tw/Argon"> <div class="num">18</div> <div class="element-symbol">Ar</div> <div class="element-name">Argon</div> </a> </div>
+        <div class="mat simple element-alkali-metal" data-element="K" data-number="19" data-name="Potassium"> <a title="Potassium" href="https://zh.wikipedia.org/zh-tw/Potassium"> <div class="num">19</div> <div class="element-symbol">K</div> <div class="element-name">Potassium</div> </a> </div>
+        <div class="mat simple element-alkali-earth-metal" data-element="Ca" data-number="20" data-name="Calcium"> <a title="Calcium" href="https://zh.wikipedia.org/zh-tw/Calcium"> <div class="num">20</div> <div class="element-symbol">Ca</div> <div class="element-name">Calcium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Sc" data-number="21" data-name="Scandium"> <a title="Scandium" href="https://zh.wikipedia.org/zh-tw/Scandium"> <div class="num">21</div> <div class="element-symbol">Sc</div> <div class="element-name">Scandium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Ti" data-number="22" data-name="Titanium"> <a title="Titanium" href="https://zh.wikipedia.org/zh-tw/Titanium"> <div class="num">22</div> <div class="element-symbol">Ti</div> <div class="element-name">Titanium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="V" data-number="23" data-name="Vanadium"> <a title="Vanadium" href="https://zh.wikipedia.org/zh-tw/Vanadium"> <div class="num">23</div> <div class="element-symbol">V</div> <div class="element-name">Vanadium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Cr" data-number="24" data-name="Chromium"> <a title="Chromium" href="https://zh.wikipedia.org/zh-tw/Chromium"> <div class="num">24</div> <div class="element-symbol">Cr</div> <div class="element-name">Chromium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Mn" data-number="25" data-name="Manganese"> <a title="Manganese" href="https://zh.wikipedia.org/zh-tw/Manganese"> <div class="num">25</div> <div class="element-symbol">Mn</div> <div class="element-name">Manganese</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Fe" data-number="26" data-name="Iron"> <a title="Iron" href="https://zh.wikipedia.org/zh-tw/Iron"> <div class="num">26</div> <div class="element-symbol">Fe</div> <div class="element-name">Iron</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Co" data-number="27" data-name="Cobalt"> <a title="Cobalt" href="https://zh.wikipedia.org/zh-tw/Cobalt"> <div class="num">27</div> <div class="element-symbol">Co</div> <div class="element-name">Cobalt</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Ni" data-number="28" data-name="Nickel"> <a title="Nickel" href="https://zh.wikipedia.org/zh-tw/Nickel"> <div class="num">28</div> <div class="element-symbol">Ni</div> <div class="element-name">Nickel</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Cu" data-number="29" data-name="Copper"> <a title="Copper" href="https://zh.wikipedia.org/zh-tw/Copper"> <div class="num">29</div> <div class="element-symbol">Cu</div> <div class="element-name">Copper</div> </a> </div>
+        <div class="mat simple element-metal" data-element="Zn" data-number="30" data-name="Zinc"> <a title="Zinc" href="https://zh.wikipedia.org/zh-tw/Zinc"> <div class="num">30</div> <div class="element-symbol">Zn</div> <div class="element-name">Zinc</div> </a> </div>
+        <div class="mat simple element-metal" data-element="Ga" data-number="31" data-name="Gallium"> <a title="Gallium" href="https://zh.wikipedia.org/zh-tw/Gallium"> <div class="num">31</div> <div class="element-symbol">Ga</div> <div class="element-name">Gallium</div> </a> </div>
+        <div class="mat simple element-metalloid" data-element="Ge" data-number="32" data-name="Germanium"> <a title="Germanium" href="https://zh.wikipedia.org/zh-tw/Germanium"> <div class="num">32</div> <div class="element-symbol">Ge</div> <div class="element-name">Germanium</div> </a> </div>
+        <div class="mat simple element-metalloid" data-element="As" data-number="33" data-name="Arsenic"> <a title="Arsenic" href="https://zh.wikipedia.org/zh-tw/Arsenic"> <div class="num">33</div> <div class="element-symbol">As</div> <div class="element-name">Arsenic</div> </a> </div>
+        <div class="mat simple element-non-metal" data-element="Se" data-number="34" data-name="Selenium"> <a title="Selenium" href="https://zh.wikipedia.org/zh-tw/Selenium"> <div class="num">34</div> <div class="element-symbol">Se</div> <div class="element-name">Selenium</div> </a> </div>
+        <div class="mat simple element-halogen" data-element="Br" data-number="35" data-name="Bromine"> <a title="Bromine" href="https://zh.wikipedia.org/zh-tw/Bromine"> <div class="num">35</div> <div class="element-symbol">Br</div> <div class="element-name">Bromine</div> </a> </div>
+        <div class="mat simple element-noble-gas" data-element="Kr" data-number="36" data-name="Krypton"> <a title="Krypton" href="https://zh.wikipedia.org/zh-tw/Krypton"> <div class="num">36</div> <div class="element-symbol">Kr</div> <div class="element-name">Krypton</div> </a> </div>
+        <div class="mat simple element-alkali-metal" data-element="Rb" data-number="37" data-name="Rubidium"> <a title="Rubidium" href="https://zh.wikipedia.org/zh-tw/Rubidium"> <div class="num">37</div> <div class="element-symbol">Rb</div> <div class="element-name">Rubidium</div> </a> </div>
+        <div class="mat simple element-alkali-earth-metal" data-element="Sr" data-number="38" data-name="Strontium"> <a title="Strontium" href="https://zh.wikipedia.org/zh-tw/Strontium"> <div class="num">38</div> <div class="element-symbol">Sr</div> <div class="element-name">Strontium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Y" data-number="39" data-name="Yttrium"> <a title="Yttrium" href="https://zh.wikipedia.org/zh-tw/Yttrium"> <div class="num">39</div> <div class="element-symbol">Y</div> <div class="element-name">Yttrium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Zr" data-number="40" data-name="Zirconium"> <a title="Zirconium" href="https://zh.wikipedia.org/zh-tw/Zirconium"> <div class="num">40</div> <div class="element-symbol">Zr</div> <div class="element-name">Zirconium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Nb" data-number="41" data-name="Niobium"> <a title="Niobium" href="https://zh.wikipedia.org/zh-tw/Niobium"> <div class="num">41</div> <div class="element-symbol">Nb</div> <div class="element-name">Niobium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Mo" data-number="42" data-name="Molybdenum"> <a title="Molybdenum" href="https://zh.wikipedia.org/zh-tw/Molybdenum"> <div class="num">42</div> <div class="element-symbol">Mo</div> <div class="element-name">Molybdenum</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Tc" data-number="43" data-name="Technetium"> <a title="Technetium" href="https://zh.wikipedia.org/zh-tw/Technetium"> <div class="num">43</div> <div class="element-symbol">Tc</div> <div class="element-name">Technetium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Ru" data-number="44" data-name="Ruthenium"> <a title="Ruthenium" href="https://zh.wikipedia.org/zh-tw/Ruthenium"> <div class="num">44</div> <div class="element-symbol">Ru</div> <div class="element-name">Ruthenium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Rh" data-number="45" data-name="Rhodium"> <a title="Rhodium" href="https://zh.wikipedia.org/zh-tw/Rhodium"> <div class="num">45</div> <div class="element-symbol">Rh</div> <div class="element-name">Rhodium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Pd" data-number="46" data-name="Palladium"> <a title="Palladium" href="https://zh.wikipedia.org/wiki/%E9%92%AF"> <div class="num">46</div> <div class="element-symbol">Pd</div> <div class="element-name">Palladium</div> </a> </div>
+        <div class="mat simple element-transition-metal" data-element="Ag" data-number="47" data-name="Silver"> <a title="Silver" href="https://zh.wikipedia.org/zh-tw/Silver"> <div class="num">47</div> <div class="element-symbol">Ag</div> <div class="element-name">Silver</div> </a> </div>
+        <div class="mat simple element-metal" data-element="Cd" data-number="48" data-name="Cadmium"> <a title="Cadmium" href="https://zh.wikipedia.org/zh-tw/Cadmium"> <div class="num">48</div> <div class="element-symbol">Cd</div> <div class="element-name">Cadmium</div> </a> </div>
+        <div class="mat simple element-metal" data-element="In" data-number="49" data-name="Indium"> <a title="Indium" href="https://zh.wikipedia.org/zh-tw/Indium"> <div class="num">49</div> <div class="element-symbol">In</div> <div class="element-name">Indium</div> </a> </div>
+        <div class="mat simple element-metal" data-element="Sn" data-number="50" data-name="Tin"> <a title="Tin" href="https://zh.wikipedia.org/zh-tw/Tin"> <div class="num">50</div> <div class="element-symbol">Sn</div> <div class="element-name">Tin</div> </a> </div>
+        <div class="mat simple element-metalloid" data-element="Sb" data-number="51" data-name="Antimony"> <a title="Antimony" href="https://zh.wikipedia.org/zh-tw/Antimony"> <div class="num">51</div> <div class="element-symbol">Sb</div> <div class="element-name">Antimony</div> </a> </div>
+        <div class="mat simple element-metalloid" data-element="Te" data-number="52" data-name="Tellurium"> <a title="Tellurium" href="https://zh.wikipedia.org/zh-tw/Tellurium"> <div class="num">52</div> <div class="element-symbol">Te</div> <div class="element-name">Tellurium</div> </a> </div>
+        <div class="mat simple element-halogen" data-element="I" data-number="53" data-name="Iodine"> <a title="Iodine" href="https://zh.wikipedia.org/zh-tw/Iodine"> <div class="num">53</div> <div class="element-symbol">I</div> <div class="element-name">Iodine</div> </a> </div>
+        <div class="mat simple element-noble-gas" data-element="Xe" data-number="54" data-name="Xenon"> <a title="Xenon" href="https://zh.wikipedia.org/zh-tw/Xenon"> <div class="num">54</div> <div class="element-symbol">Xe</div> <div class="element-name">Xenon</div> </a> </div>
+            
+        <!-- Add other elements here -->
+    </div>
+    
+
+</body>
 </html>

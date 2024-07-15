@@ -72,18 +72,24 @@ keys=list(e.keys())
 #     full=e[short]
 #     a=a+1
 #     print(f'<button class="mat simple element-alkali-metal" data-element="{short}"><div class="num">{a}</div><div class="mat"><a title="{full}" href="https://zh.wikipedia.org/zh-tw/{full}"><span class="element-symbol">{short}</span></a></div></button>')
-c=1
-r=5
-for a in range(18,54):
-    short=keys[a]
-    a=a+1
-    print(f'.mat.simple[data-element="{short}"] {{ grid-column: {c}; grid-row:{r} ; }}')
-    c=c+1
-    if c==19:
-        c=1
-        r=r+1
-            
+# c=1
+# r=5
+# for a in range(18,54):
+#     short=keys[a]
+#     a=a+1
+#     print(f'.mat.simple[data-element="{short}"] {{ grid-column: {c}; grid-row:{r} ; }}')
+#     c=c+1
+#     if c==19:
+#         c=1
+#         r=r+1
      
+for a in range(0, 54):
+    short = keys[a]
+    full = e[short]
+    element_number = a + 1
+    print(f'''<div class="mat simple element-non-metal" data-element="{short}" data-number="{element_number}" data-name="{full}"> <a title="{full}" href="https://zh.wikipedia.org/zh-tw/{full}"> <div class="num">{element_number}</div> <div class="element-symbol">{short}</div> <div class="element-name">{full}</div> </a> </div>''')
     
+
+
     
     
