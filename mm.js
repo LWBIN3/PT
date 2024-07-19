@@ -1,20 +1,80 @@
-const inputElement = document.getElementById("input");
-const searchButton = document.getElementById("search-button");
-const form = document.getElementById("input-wrapper");
+document
+  .getElementById("elementForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-function searchItem(e) {
-  // 防止表單提交和頁面刷新
-  e.preventDefault();
-  const text = inputElement.value.trim().toLowerCase(); // 使用 trim() 去除首尾空白
+    const symbolInput = document
+      .getElementById("elementSymbol")
+      .value.trim()
+      .toLowerCase();
+    const numberInput = document.getElementById("elementNumber").value.trim();
+    const nameInput = document
+      .getElementById("elementName")
+      .value.trim()
+      .toLowerCase();
 
-  if (text === "") {
-    alert("請輸入內容");
-    return;
-  }
-}
+    const elements = document.querySelectorAll(".mat.simple");
+    elements.forEach((element) => {
+      const symbol = element.dataset.element.toLowerCase();
+      const number = element.dataset.number;
+      const name = element.dataset.name.toLowerCase();
 
-// 監聽輸入框的輸入事件
-inputElement.addEventListener("input", searchItem);
+      if (
+        symbol === symbolInput ||
+        number === numberInput ||
+        name === nameInput
+      ) {
+        element.style.display = "flex";
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        element.style.display = "none";
+      }
+    });
 
-// 監聽表單的提交事件
-form.addEventListener("submit", searchItem);
+    // 清空输入框
+    document.getElementById("elementSymbol").value = "";
+    document.getElementById("elementNumber").value = "";
+    document.getElementById("elementName").value = "";
+  });
+
+const elementInputs = document.querySelectorAll(
+  "#elementSymbol, #elementNumber, #elementName"
+);
+elementInputs.forEach((input) => {
+  input.addEventListener("input", function () {
+    const symbolInput = document
+      .getElementById("elementSymbol")
+      .value.trim()
+      .toLowerCase();
+    const numberInput = document.getElementById("elementNumber").value.trim();
+    const nameInput = document
+      .getElementById("elementName")
+      .value.trim()
+      .toLowerCase();
+
+    const elements = document.querySelectorAll(".mat.simple");
+    elements.forEach((element) => {
+      const symbol = element.dataset.element.toLowerCase();
+      const number = element.dataset.number;
+      const name = element.dataset.name.toLowerCase();
+
+      if (
+        symbol === symbolInput ||
+        number === numberInput ||
+        name === nameInput
+      ) {
+        if (input.id !== "elementSymbol") {
+          document.getElementById("elementSymbol").value =
+            element.dataset.element;
+        }
+        if (input.id !== "elementNumber") {
+          document.getElementById("elementNumber").value =
+            element.dataset.number;
+        }
+        if (input.id !== "elementName") {
+          document.getElementById("elementName").value = element.dataset.name;
+        }
+      }
+    });
+  });
+});
